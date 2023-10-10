@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int main(int ac, char **argv)
+int main(int ac, char **argv, char **env)
 {
     char *line = NULL;
     char **cmd = NULL;
@@ -22,6 +22,6 @@ int main(int ac, char **argv)
         if (cmd == NULL)
             continue;
 
-        execute_cmd(cmd);
+        execute_cmd(cmd, env);
     }
 }
