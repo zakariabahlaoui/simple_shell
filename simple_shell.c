@@ -22,6 +22,6 @@ int main(int ac, char **argv, char **env)
         if (cmd == NULL)
             continue;
 
-        execute_cmd(cmd, env);
+        execute_cmd(cmd, argv, env);
     }
 }

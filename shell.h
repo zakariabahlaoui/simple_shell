@@ -21,7 +21,7 @@ typedef struct passinfo
 
 char *read_line(void);
 char **tokenizer(char *str);
-void execute_cmd(char **cmd, char **env);
+void execute_cmd(char **cmd, char **argv, char **env);
 
 /*sting functions*/
 char *_strcpy(char *dest, char *src);
