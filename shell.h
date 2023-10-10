@@ -7,8 +7,10 @@
 #include <readline/history.h>
 #include <stdlib.h>
 #include <string.h>
-#include <dirent.h>
 #include <stdbool.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <fcntl.h>
 
 typedef struct passinfo
 {
@@ -22,6 +24,7 @@ typedef struct passinfo
 char *read_line(void);
 char **tokenizer(char *str);
 void execute_cmd(char **cmd, char **argv, char **env);
+void freearray(char **arr);
 
 /*sting functions*/
 char *_strcpy(char *dest, char *src);
