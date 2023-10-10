@@ -4,23 +4,26 @@ int main(int ac, char **argv, char **env)
 {
     char *line = NULL;
     char **cmd = NULL;
+    int i;
 
     while (1)
     {
-        write(STDOUT_FILENO, "$ ", 2);
+        if (isatty(STDIN_FILENO))
+            write(STDOUT_FILENO, "$ ", 2);
 
         line = read_line();
 
         if (line == NULL)
-        {
-            if (isatty(STDIN_FILENO))
-                write(STDOUT_FILENO, "\n", 1);
             return (0);
-        }
 
         cmd = tokenizer(line);
         if (cmd == NULL)
             continue;
+        // for (i = 0; cmd[i]; i++)
+        // {
+        //     printf("%s\n", cmd[i]);
+        // }
+        // freearray(cmd);
 
         execute_cmd(cmd, argv, env);
     }
