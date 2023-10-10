@@ -13,6 +13,7 @@ void execute_cmd(char **cmd, char **argv, char **env)
         {
             perror(argv[0]);
             freearray(cmd);
+            exit(0);
         }
     }
     else
