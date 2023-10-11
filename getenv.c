@@ -21,10 +21,11 @@ char *ft_getenv(char *name, char **env)
 		if (_strcmp(key[0], name) == 0)
 		{
 			value = key[1];
+			freearray(key);
+			return (value);
 		}
-		freearray(key);
 		i++;
 	}
 
-	return (value);
+	return (NULL);
 }
