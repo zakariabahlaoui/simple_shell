@@ -24,6 +24,7 @@ char **tokenizer(char *str)
 	{
 		free(str), str = NULL;
 		free(tmp), tmp = NULL;
+		free(s), s = NULL;
 		return (NULL);
 	}
 	while (token_str)
