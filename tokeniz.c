@@ -8,7 +8,7 @@
  * Return: array 2D
  */
 
-char **tokenizer(char *str)
+char **_tokenizer(char *str)
 {
 	char *token_str = NULL, *tmp = NULL, *s = NULL;
 	char **cmd = NULL;

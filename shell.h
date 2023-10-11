@@ -22,7 +22,7 @@ typedef struct passinfo
 } info_t;
 
 char *read_line(void);
-char **tokenizer(char *str);
+char **_tokenizer(char *str);
 void execute_cmd(char **cmd, char **argv, char **env);
 void freearray(char **arr);
 
