@@ -39,7 +39,6 @@ char **tokenizer(char *str)
 		free(str), str = NULL;
 		return (NULL);
 	}
-
 	token_str = strtok(s, " \t\n");
 	while (token_str)
 	{
