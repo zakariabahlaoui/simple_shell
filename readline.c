@@ -3,10 +3,10 @@
 char *read_line(void)
 {
     char *line = NULL;
-    size_t l = 0;
+    size_t length = 0;
     size_t i;
 
-    i = getline(&line, &, stdin);
+    i = getline(&line, &length, stdin);
 
     if (i == -1)
     {
