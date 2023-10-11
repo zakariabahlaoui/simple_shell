@@ -4,7 +4,6 @@ int main(int ac, char **argv, char **env)
 {
     char *line = NULL;
     char **cmd = NULL;
-    int i;
 
     while (1)
     {
