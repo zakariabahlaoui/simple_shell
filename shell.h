@@ -32,7 +32,7 @@ char *ft_getenv(char *name, char **env);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
-char *ft_strjoin(char const *s1, char const *s2);
+char *ft_strjoin(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char **ft_split(char const *s, char c);
 
