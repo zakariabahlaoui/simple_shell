@@ -15,7 +15,7 @@ int main(int ac, char **argv, char **env)
         if (line == NULL)
             return (0);
 
-        cmd = tokenizer(line);
+        cmd = _tokenizer(line);
         if (cmd == NULL)
             continue;
         // for (i = 0; cmd[i]; i++)
