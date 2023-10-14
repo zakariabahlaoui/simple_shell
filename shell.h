@@ -24,7 +24,7 @@ typedef struct passinfo
 
 char *read_line(void);
 char **_tokenizer(char *str);
-void execute_cmd(char **cmd, char **argv, char **env);
+void execute_cmd(char **cmd, char **argv, char **env, int index);
 void freearray(char **arr);
 void _strdel(char **str);
 char *ft_getenv(char *name, char **env);
