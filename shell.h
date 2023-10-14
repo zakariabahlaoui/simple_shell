@@ -29,6 +29,7 @@ void freearray(char **arr);
 void _strdel(char **str);
 char *ft_getenv(char *name, char **env);
 char *_itoa(int n);
+void print_error(char *sh, char *cmd, int index);
 
 /*sting functions*/
 char *_strcpy(char *dest, char *src);
