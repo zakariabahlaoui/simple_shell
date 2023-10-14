@@ -10,7 +10,7 @@ char *read_line(void)
 {
 	char *line = NULL;
 	size_t length = 0;
-	size_t i;
+	ssize_t i;
 
 	i = getline(&line, &length, stdin);
 
