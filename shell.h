@@ -26,7 +26,9 @@ char *read_line(void);
 char **_tokenizer(char *str);
 void execute_cmd(char **cmd, char **argv, char **env);
 void freearray(char **arr);
+void _strdel(char **str);
 char *ft_getenv(char *name, char **env);
+char *_itoa(int n);
 
 /*sting functions*/
 char *_strcpy(char *dest, char *src);
