@@ -82,5 +82,6 @@ char *_itoa(int n)
 		j++;
 	}
 	str[j] = 0;
+	_strdel(&buff);
 	return (str);
 }
