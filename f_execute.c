@@ -48,9 +48,13 @@ int execute_cmd(char **cmd, char **argv, char **env, int index)
 {
 	pid_t id;
 	int status;
-	char *path = NULL;
+	char *path = NULL, *tmp = NULL;
 
-	if (cmd[0][0] == '/')
+	// printf("%s\n", cmd[0]);
+
+	if (cmd[0][0] == '.')
+		path = strdup(cmd[0]);
+	else if (cmd[0][0] == '/')
 		path = strdup(cmd[0]);
 	else
 		path = get_path(cmd, env);
