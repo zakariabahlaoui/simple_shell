@@ -4,6 +4,8 @@ int main(int ac, char **argv, char **env)
 {
     char *line = NULL;
     char **cmd = NULL;
+    int index = 0;
+    int stat = 0;
 
     while (1)
     {
@@ -13,7 +15,12 @@ int main(int ac, char **argv, char **env)
         line = read_line();
 
         if (line == NULL)
-            return (0);
+        {
+            if (isatty(STDIN_FILENO))
+                write(STDOUT_FILENO, "\n", 1);
+            return (stat);
+        }
+        index++;
 
         cmd = _tokenizer(line);
         if (cmd == NULL)
@@ -24,6 +31,6 @@ int main(int ac, char **argv, char **env)
         // }
         // freearray(cmd);
 
-        execute_cmd(cmd, argv, env);
+        stat = execute_cmd(cmd, argv, env, index);
     }
 }
