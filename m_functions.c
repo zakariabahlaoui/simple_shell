@@ -40,6 +40,15 @@ void _strdel(char **str)
 	*str = NULL;
 }
 
+/**
+ * print_error - print error if the path not fund
+ * @sh: name the program
+ * @cmd: command
+ * @index: the index to command
+ *
+ * Return: is void
+ */
+
 void print_error(char *sh, char *cmd, int index)
 {
 	char *_index;
