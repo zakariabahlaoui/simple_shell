@@ -13,15 +13,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-typedef struct passinfo
-{
-    char *arg;
-    char **argv;
-    char *path;
-    int argc;
-
-} info_t;
-
 char *read_line(void);
 char **_tokenizer(char *str);
 int execute_cmd(char **cmd, char **argv, char **env, int index);
@@ -30,6 +21,7 @@ void _strdel(char **str);
 char *ft_getenv(char *name, char **env);
 char *_itoa(int n);
 void print_error(char *sh, char *cmd, int index);
+void print_env(char **env);
 
 /*sting functions*/
 char *_strcpy(char *dest, char *src);

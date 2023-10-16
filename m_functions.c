@@ -65,3 +65,17 @@ void print_error(char *sh, char *cmd, int index)
 
 	free(_index);
 }
+
+void print_env(char **env)
+{
+	int i = 0;
+	int len = 0;
+
+	while (env[i])
+	{
+		len = _strlen(env[i]);
+		write(STDERR_FILENO, env[i], len);
+		write(STDERR_FILENO, "\n", 1);
+		i++;
+	}
+}
