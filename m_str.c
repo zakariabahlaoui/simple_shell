@@ -105,6 +105,13 @@ char *_strcat(char *dest, char *src)
 
 	return (dest);
 }
+/**
+ * ft_strjoin - concatenate two string dublicated
+ * @s1: dest
+ * @s2: src
+ *
+ * Return: return str allocated
+ */
 
 char *ft_strjoin(char *s1, char *s2)
 {
@@ -115,15 +122,14 @@ char *ft_strjoin(char *s1, char *s2)
 	int j;
 
 	if (s1 == NULL || s2 == NULL)
-		return NULL;
+		return (NULL);
 
 	s1_len = _strlen(s1);
 	s2_len = _strlen(s2);
 	str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (str == NULL)
-		return NULL;
-	// ft_memcpy(str, s1, s1_len);
-	// ft_memcpy(str + s1_len, s2, s2_len + 1);
+		return (NULL);
+
 	i = 0;
 	while (s1[i])
 	{
