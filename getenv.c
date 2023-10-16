@@ -20,12 +20,15 @@ char *ft_getenv(char *name, char **env)
 		key = ft_split(env[i], '=');
 		if (_strcmp(key[0], name) == 0)
 		{
-			value = strdup(key[1]);
+			if (key[1] == NULL)
+				value = strdup("");
+			else
+				value = strdup(key[1]);
 			freearray(key);
 			return (value);
 		}
+		freearray(key);
 		i++;
 	}
-
 	return (NULL);
 }
