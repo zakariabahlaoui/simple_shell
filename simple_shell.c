@@ -35,6 +35,17 @@ int main(int ac, char **argv, char **env)
 		if (cmd == NULL)
 			continue;
 
+		if (_strcmp(cmd[0], "exit") == 0)
+		{
+			freearray(cmd);
+			exit(stat);
+		}
+		if (_strcmp(cmd[0], "env") == 0)
+		{
+			print_env(env);
+			stat = 0;
+		}
+
 		stat = execute_cmd(cmd, argv, env, index);
 	}
 }
