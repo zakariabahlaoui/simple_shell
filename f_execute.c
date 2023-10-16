@@ -44,7 +44,7 @@ char *get_path(char **cmd, char **env)
  * Return: is void
  */
 
-void execute_cmd(char **cmd, char **argv, char **env, int index)
+int execute_cmd(char **cmd, char **argv, char **env, int index)
 {
 	pid_t id;
 	int status;
@@ -58,6 +58,8 @@ void execute_cmd(char **cmd, char **argv, char **env, int index)
 	if (path == NULL)
 	{
 		print_error(argv[0], cmd[0], index);
+		freearray(cmd);
+		return (127);
 	}
 	id = fork();
 
@@ -75,11 +77,5 @@ void execute_cmd(char **cmd, char **argv, char **env, int index)
 		freearray(cmd), cmd = NULL;
 		_strdel(&path);
 	}
+	return (WEXITSTATUS(status));
 }
-
-// int main(int argc, char **argv, char **env)
-// {
-// 	char *cmd[] = {"ls", NULL};
-
-// 	execute_cmd(cmd, argv, env);
-// }
