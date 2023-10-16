@@ -52,6 +52,7 @@ void print_error(char *sh, char *cmd, int index)
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, cmd, _strlen(cmd));
 	write(STDERR_FILENO, ": not found", 11);
+	write(STDERR_FILENO, "\n", 1);
 
 	free(_index);
 }
