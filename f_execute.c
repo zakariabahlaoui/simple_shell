@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * get_path - return the path we find in env"envirment variable"
+ * @cmd: the command
+ * @env: enve
+ *
+ * Return: return the path
+ */
+
 char *get_path(char **cmd, char **env)
 {
 	char *all_path = NULL, *path = NULL, *tmp = NULL;
@@ -7,7 +15,7 @@ char *get_path(char **cmd, char **env)
 	int i = 0;
 
 	if (!cmd)
-		return NULL;
+		return (NULL);
 
 	all_path = ft_getenv("PATH", env);
 	if (all_path == NULL)
@@ -40,6 +48,7 @@ char *get_path(char **cmd, char **env)
  * @cmd: the 2D array
  * @argv: argv
  * @env: environment variable
+ * @index: the index
  *
  * Return: is void
  */
@@ -49,8 +58,6 @@ int execute_cmd(char **cmd, char **argv, char **env, int index)
 	pid_t id;
 	int status;
 	char *path = NULL, *tmp = NULL;
-
-	// printf("%s\n", cmd[0]);
 
 	if (cmd[0][0] == '.')
 		path = strdup(cmd[0]);
