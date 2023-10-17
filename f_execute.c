@@ -57,7 +57,7 @@ int execute_cmd(char **cmd, char **argv, char **env, int index)
 {
 	pid_t id;
 	int status;
-	char *path = NULL, *tmp = NULL;
+	char *path = NULL;
 
 	if (cmd[0][0] == '.')
 		path = strdup(cmd[0]);

@@ -15,6 +15,7 @@ int main(int ac, char **argv, char **env)
 	char **cmd = NULL;
 	int index = 0;
 	int stat = 0;
+	(void)ac;
 
 	while (1)
 	{
