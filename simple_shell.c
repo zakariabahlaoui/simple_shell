@@ -38,14 +38,13 @@ int main(int ac, char **argv, char **env)
 
 		if (_strcmp(cmd[0], "exit") == 0)
 			f_exit(cmd, argv, stat, index);
-
-		if (_strcmp(cmd[0], "env") == 0)
+		else if (_strcmp(cmd[0], "env") == 0)
 		{
 			print_env(env);
 			stat = 0;
 		}
-
-		stat = execute_cmd(cmd, argv, env, index);
+		else
+			stat = execute_cmd(cmd, argv, env, index);
 	}
 
 	return (0);
