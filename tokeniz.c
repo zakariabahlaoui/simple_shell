@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * tokenizer - this function take a string an split it and tokenaz
+ * _tokenizer - this function take a string an split it and tokenaz
  *  it and assign it in array 2D
  * @str: the string
  *
