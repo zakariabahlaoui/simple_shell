@@ -46,25 +46,39 @@ void _strdel(char **str)
  * @cmd: command
  * @index: the index to command
  *
- * Return: is void
+ * Return: return status
  */
 
-void print_error(char *sh, char *cmd, int index)
+int print_error(char *sh, char **cmd, int index)
 {
-	char *_index;
+	char *_index = 0;
+	int negative = 1;
 
-	_index = _itoa(index);
+	if ((_strcmp(cmd[0], "exit") == 0) && cmd[1] != NULL)
+		negative = _atoi(cmd[1]);
 
-	write(STDERR_FILENO, sh, _strlen(sh));
-	write(STDERR_FILENO, ": ", 2);
-	write(STDERR_FILENO, _index, _strlen(_index));
-	write(STDERR_FILENO, ": ", 2);
-	write(STDERR_FILENO, cmd, _strlen(cmd));
-	write(STDERR_FILENO, ": not found", 11);
-	write(STDERR_FILENO, "\n", 1);
-
-	free(_index);
+	if (negative > -1)
+	{
+		_index = _itoa(index);
+		write(STDERR_FILENO, sh, _strlen(sh));
+		write(STDERR_FILENO, ": ", 2);
+		write(STDERR_FILENO, _index, _strlen(_index));
+		write(STDERR_FILENO, ": ", 2);
+		write(STDERR_FILENO, cmd[0], _strlen(cmd[0]));
+		write(STDERR_FILENO, ": not found", 11);
+		write(STDERR_FILENO, "\n", 1);
+		_strdel(&_index);
+		return (127);
+	}
+	return (2);
 }
+
+/**
+ * print_env - print env
+ * @env: env
+ *
+ * Return: is void
+ */
 
 void print_env(char **env)
 {
@@ -77,5 +91,50 @@ void print_env(char **env)
 		write(STDERR_FILENO, env[i], len);
 		write(STDERR_FILENO, "\n", 1);
 		i++;
+	}
+}
+
+/**
+ * f_exit - exit the program
+ * @cmd: commamd
+ * @argv: argv
+ * @status: status
+ * @index: index
+ *
+ * Return: is void
+ */
+
+void f_exit(char **cmd, char **argv, int status, int index)
+{
+	int stat_exit = 0;
+	char *_index;
+	char *msg = ": Illegal number: ";
+
+	if (cmd[1] == NULL)
+	{
+		freearray(cmd);
+		exit(status);
+	}
+	else
+	{
+		stat_exit = _atoi(cmd[1]);
+		if (stat_exit > -1)
+		{
+			freearray(cmd);
+			exit(stat_exit);
+		}
+		else
+		{
+			_index = _itoa(index);
+			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
+			write(STDERR_FILENO, ": ", 2);
+			write(STDERR_FILENO, _index, _strlen(_index));
+			write(STDERR_FILENO, ": ", 2);
+			write(STDERR_FILENO, cmd[0], _strlen(cmd[0]));
+			write(STDERR_FILENO, msg, _strlen(msg));
+			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
+			write(STDERR_FILENO, "\n", 1);
+			_strdel(&_index);
+		}
 	}
 }

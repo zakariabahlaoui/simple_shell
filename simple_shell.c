@@ -36,10 +36,8 @@ int main(int ac, char **argv, char **env)
 			continue;
 
 		if (_strcmp(cmd[0], "exit") == 0)
-		{
-			freearray(cmd);
-			exit(stat);
-		}
+			f_exit(cmd, argv, stat, index);
+
 		if (_strcmp(cmd[0], "env") == 0)
 		{
 			print_env(env);

@@ -68,9 +68,9 @@ int execute_cmd(char **cmd, char **argv, char **env, int index)
 
 	if (path == NULL)
 	{
-		print_error(argv[0], cmd[0], index);
+		status = print_error(argv[0], cmd, index);
 		freearray(cmd);
-		return (127);
+		return (status);
 	}
 	id = fork();
 
