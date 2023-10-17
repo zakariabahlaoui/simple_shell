@@ -41,6 +41,7 @@ int main(int ac, char **argv, char **env)
 		else if (_strcmp(cmd[0], "env") == 0)
 		{
 			print_env(env);
+			freearray(cmd);
 			stat = 0;
 		}
 		else

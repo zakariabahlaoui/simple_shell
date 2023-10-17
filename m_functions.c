@@ -88,8 +88,8 @@ void print_env(char **env)
 	while (env[i])
 	{
 		len = _strlen(env[i]);
-		write(STDERR_FILENO, env[i], len);
-		write(STDERR_FILENO, "\n", 1);
+		write(STDOUT_FILENO, env[i], len);
+		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
 }
