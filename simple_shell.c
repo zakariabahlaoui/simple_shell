@@ -46,4 +46,6 @@ int main(int ac, char **argv, char **env)
 
 		stat = execute_cmd(cmd, argv, env, index);
 	}
+
+	return (0);
 }
