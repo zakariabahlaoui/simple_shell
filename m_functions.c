@@ -104,7 +104,7 @@ void print_env(char **env)
  * Return: is void
  */
 
-void f_exit(char **cmd, char **argv, int status, int index)
+void f_exit(char **cmd, char **argv, int *status, int index)
 {
 	int stat_exit = 0;
 	char *_index;
@@ -113,7 +113,7 @@ void f_exit(char **cmd, char **argv, int status, int index)
 	if (cmd[1] == NULL)
 	{
 		freearray(cmd);
-		exit(status);
+		exit(*status);
 	}
 	else
 	{
@@ -135,6 +135,7 @@ void f_exit(char **cmd, char **argv, int status, int index)
 			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDERR_FILENO, "\n", 1);
 			_strdel(&_index);
+			*status = 0;
 		}
 	}
 }

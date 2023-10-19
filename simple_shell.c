@@ -37,7 +37,7 @@ int main(int ac, char **argv, char **env)
 			continue;
 
 		if (_strcmp(cmd[0], "exit") == 0)
-			f_exit(cmd, argv, stat, index);
+			f_exit(cmd, argv, &stat, index);
 		else if (_strcmp(cmd[0], "env") == 0)
 		{
 			print_env(env);

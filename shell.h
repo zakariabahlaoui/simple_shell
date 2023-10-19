@@ -22,7 +22,7 @@ char *ft_getenv(char *name, char **env);
 char *_itoa(int n);
 int print_error(char *sh, char **cmd, int index);
 void print_env(char **env);
-void f_exit(char **cmd, char **argv, int status, int index);
+void f_exit(char **cmd, char **argv, int *status, int index);
 
 /*sting functions*/
 char *_strcpy(char *dest, char *src);
