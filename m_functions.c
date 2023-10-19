@@ -135,7 +135,7 @@ void f_exit(char **cmd, char **argv, int *status, int index)
 			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDERR_FILENO, "\n", 1);
 			_strdel(&_index);
-			*status = 0;
+			*status = 2;
 		}
 	}
 }
