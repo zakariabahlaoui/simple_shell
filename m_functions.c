@@ -118,12 +118,12 @@ void f_exit(char **cmd, char **argv, int *status, int index)
 	else
 	{
 		stat_exit = _atoi(cmd[1]);
-		if (stat_exit > -1)
+		if (stat_exit > 0)
 		{
 			freearray(cmd);
 			exit(stat_exit);
 		}
-		else
+		else if (stat_exit < 1)
 		{
 			_index = _itoa(index);
 			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
